@@ -1,1 +1,3 @@
-pip install python-keycloak
+cp supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+/usr/bin/supervisord
