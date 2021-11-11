@@ -1,3 +1,6 @@
+ls
+pwd
+
 mkdir /home/jovyan/supervisor/
 
 /usr/bin/supervisord -c /home/jovyan/supervisod.conf
