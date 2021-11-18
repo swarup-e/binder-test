@@ -3,4 +3,6 @@
 mkdir /home/jovyan/supervisor/
 /usr/bin/supervisord -c /home/jovyan/supervisord.conf
 
+export TEST = 'test'
+
 exec "$@"
