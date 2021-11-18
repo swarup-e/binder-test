@@ -46,12 +46,6 @@ ENV KERNEL_PYTHON_PREFIX ${NB_PYTHON_PREFIX}
 
 ENV PATH ${NB_PYTHON_PREFIX}/bin:${CONDA_DIR}/bin:${NPM_DIR}/bin:${PATH}
 
-COPY --chown=1000:1000 build_script_files/-2fusr-2flib-2fpython3-2e8-2fsite-2dpackages-2frepo2docker-2fbuildpacks-2fconda-2factivate-2dconda-2esh-391af5 /etc/profile.d/activate-conda.sh
-
-COPY --chown=1000:1000 build_script_files/-2fusr-2flib-2fpython3-2e8-2fsite-2dpackages-2frepo2docker-2fbuildpacks-2fconda-2fenvironment-2epy-2d3-2e7-2elock-4f1154 /tmp/env/environment.lock
-
-COPY --chown=1000:1000 build_script_files/-2fusr-2flib-2fpython3-2e8-2fsite-2dpackages-2frepo2docker-2fbuildpacks-2fconda-2finstall-2dminiforge-2ebash-514214 /tmp/install-miniforge.bash
-
 RUN mkdir -p ${NPM_DIR} && chown -R ${NB_USER}:${NB_USER} ${NPM_DIR}
 
 
@@ -60,8 +54,6 @@ USER ${NB_USER}
 RUN npm config --global set prefix ${NPM_DIR}
 
 USER root
-
-RUN TIMEFORMAT='time: %3R' bash -c 'time /tmp/install-miniforge.bash' && rm -rf /tmp/install-miniforge.bash /tmp/env
 
 ARG REPO_DIR=${HOME}
 
