@@ -3,11 +3,8 @@
 mkdir /home/jovyan/supervisor/
 /usr/bin/supervisord -c /home/jovyan/supervisord.conf
 
-export TEST = 'test'
-TEST1='test'
+chmod 777 /home/jovyan/refresh.sh
 
-/usr/bin/env TEST2="TEST2"
-
-/usr/bin/env TEST3="TEST3" ${*}
+/home/jovyan/refresh.sh
 
 exec "$@"
